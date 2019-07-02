@@ -1,19 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { HomeComponent } from './home/home.component';
-import { SearchComponent } from './search/search.component';
-import { MovieComponent } from './movie/movie.component';
-import { LoginDropdownComponent } from './login-dropdown/login-dropdown.component';
-import { AccountDropdownComponent } from './account-dropdown/account-dropdown.component';
-import { RecentsComponent } from './recents/recents.component';
+import { HomeComponent } from './components/home/home.component';
+import { SearchComponent } from './components/search/search.component';
+import { MovieComponent } from './components/movie/movie.component';
+import { LoginDropdownComponent } from './components/login-dropdown/login-dropdown.component';
+import { AccountDropdownComponent } from './components/account-dropdown/account-dropdown.component';
+import { RecentsComponent } from './components/recents/recents.component';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateReviewComponent } from './create-review/create-review.component';
+import { CreateReviewComponent } from './components/create-review/create-review.component';
+import { RatingComponent } from './components/rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +24,14 @@ import { CreateReviewComponent } from './create-review/create-review.component';
     LoginDropdownComponent,
     AccountDropdownComponent,
     RecentsComponent,
-    CreateReviewComponent
+    CreateReviewComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

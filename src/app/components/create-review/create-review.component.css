@@ -1,0 +1,31 @@
+.new-review{
+  width: 100%;
+  background-color: white;
+  border: 5px solid rgb(41, 43, 44);
+  border-radius: 5px;
+}
+
+.notLoggedIn{
+  background-color: rgba(128, 128, 128, 0.308);
+  position: absolute;
+  width:94.7%;
+  height: 100%;
+  text-align: center;
+  border: 5px solid rgba(41, 43, 44, 0);
+  border-radius: 5px;
+}
+
+.info-input{
+  resize: none;
+  width: 95%;
+  height: 155px;
+}
+
+.shift{
+  margin-left:25px;
+}
+
+.submit-review{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

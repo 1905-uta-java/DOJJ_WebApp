@@ -1,0 +1,31 @@
+<div class="container">
+
+  <!--Grey out the options if not currently logged in-->
+  <div class="notLoggedIn" *ngIf="!isLoggedIn">
+    <h2>Please login to create a review</h2>
+  </div>
+
+  <div class="new-review">
+    <div class="shift">
+      <!--Title Row-->
+      <div class="row">
+        <h3>Create A Review</h3>
+      </div>
+
+      <!--Rating Select-->
+      <div class="row">
+        <app-rating [newReview]="isReview" (starValue)="setStarValue($event)"></app-rating>
+      </div>
+
+      <!--Text Box Information-->
+      <div class="row">
+        <textarea [(ngModel)]="info" name="info" class="info-input"></textarea>
+      </div>
+
+      <!--Submit Review-->
+      <div class="row">
+        <button class="btn btn-success submit-review" (click)="submitReview()">Submit Review</button>
+      </div>
+    </div>
+  </div>
+</div>
