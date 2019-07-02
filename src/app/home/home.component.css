@@ -1,0 +1,15 @@
+
+
+.recent-container{
+  width: 100%;
+  background-color: white;
+  border: 5px solid rgb(41, 43, 44);
+  border-radius: 5px;
+}
+
+.theaters-container{
+  width: 100%;
+  background-color: white;
+  border: 5px solid rgb(41, 43, 44);
+  border-radius: 5px;
+}

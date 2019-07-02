@@ -1,0 +1,10 @@
+.main-search-container{
+  background-color: white;
+  border: 5px solid rgb(41, 43, 44);
+  border-radius: 5px;
+}
+
+.card{
+  border: 0;
+  border-bottom: 2px solid rgba(187, 187, 187, 0.459);
+}
