@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,8 @@ import { RecentsComponent } from './components/recents/recents.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateReviewComponent } from './components/create-review/create-review.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { SignupFormComponent } from './components/signup-form/signup-form.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,15 @@ import { RatingComponent } from './components/rating/rating.component';
     AccountDropdownComponent,
     RecentsComponent,
     CreateReviewComponent,
-    RatingComponent
+    RatingComponent,
+    SignupFormComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],
