@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'movie-review';
+  isLoggedIn = false;
+  isAdmin = false;
+
+
 }

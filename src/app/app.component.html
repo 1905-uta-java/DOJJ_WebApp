@@ -6,12 +6,12 @@
     </div>
     <div class="login-account">
       <!--Button for the user to log in-->
-      <div class="dropdown" id="login" >
+      <div class="dropdown" id="login" *ngIf="!isLoggedIn">
         <app-login-dropdown></app-login-dropdown>
       </div>
 
       <!--If the user is logged in then show account name and if clicked give options-->
-      <div class="dropdown" id="account" hidden>
+      <div class="dropdown" id="account" *ngIf="isLoggedIn">
         <app-account-dropdown></app-account-dropdown>
       </div>
     </div>

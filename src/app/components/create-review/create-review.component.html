@@ -9,7 +9,10 @@
     <div class="shift">
       <!--Title Row-->
       <div class="row">
-        <h3>Create A Review</h3>
+        <h3>Create A Review
+          <span *ngIf="failedCreate" class="red">Failed to create review</span>
+          <span *ngIf="invalidInput" class="red">Review can't be empty</span>
+        </h3>
       </div>
 
       <!--Rating Select-->
