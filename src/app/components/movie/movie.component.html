@@ -20,14 +20,14 @@
     <!--Reviews for the movie in question-->
     <div class="row">
       <div class="col-sm-12">
-
+        <app-display-reviews [MovieId]="movieId"></app-display-reviews>
       </div>
     </div>
 
     <!--Create a new review-->
     <div class="row">
       <div class="col-sm-12">
-        <app-create-review></app-create-review>
+        <app-create-review [MovieId]="movieId" (newReview)="setCreatedReview($event)"></app-create-review>
       </div>
     </div>
 

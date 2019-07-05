@@ -1,0 +1,40 @@
+<div class="allReviews">
+  <!--If no reviews exist then this will display-->
+  <div class="no-reviews" *ngIf="noReviews">
+    <h3>No Reviews</h3>
+  </div>
+
+  <div *ngIf="!noReviews">
+    <div class="review" *ngFor="let r of allReviews">
+      <div class="row">
+        <!--Column for the reviews authors information and such-->
+        <div class="col-sm-3 author-info">
+          <!--Author name and linking to profile-->
+          <div class="row username">
+            <a [routerLink]="['/routePath']"><h4>{{r.username}}</h4></a>
+          </div>
+
+          <!--Rating they gave to the movie-->
+          <div class="row rating">
+            <app-rating [newReview]="isNew" movieRating={{r.rating}}></app-rating>
+          </div>
+
+          <!--User can mark if was helpful or not-->
+          <div class="row score">
+            <em class="fas fa-arrow-circle-up icons"></em>
+            <span class="reviewScore">{{r.credibilityScore}}</span>
+            <em class="fas fa-arrow-circle-down icons"></em>
+          </div>
+        </div>
+
+        <!--Column for the review description-->
+        <div class="col-sm-8 review-info">
+          {{r.body}}
+        </div>
+      </div>
+      <div class="row divider">
+      </div>
+    </div>
+  </div>
+
+</div>

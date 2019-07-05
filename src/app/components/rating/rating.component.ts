@@ -27,7 +27,7 @@ export class RatingComponent implements OnInit {
     }
   }
 
-  initialSetStarLevel(level: string){
+  initialSetStarLevel(level: string) {
     switch (level) {
       case '1':
         this.starValue.emit(1);

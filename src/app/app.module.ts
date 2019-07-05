@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateReviewComponent } from './components/create-review/create-review.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { DisplayReviewsComponent } from './components/display-reviews/display-reviews.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     RecentsComponent,
     CreateReviewComponent,
     RatingComponent,
-    ProfileComponent
+    ProfileComponent,
+    DisplayReviewsComponent
   ],
   imports: [
     BrowserModule,
