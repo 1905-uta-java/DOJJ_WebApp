@@ -16,7 +16,6 @@ export class AppComponent {
   currentMovie : Movie = {title : undefined, description : undefined, id : undefined};
   apiKey : string = "19fd2eec2c34304e81d242a6fe7020f5";
   returnedSearch : any = [];
-
   constructor(private SearchService : SearchService, private router : Router) { }
 
   ngOnInit() 
@@ -31,20 +30,6 @@ export class AppComponent {
     console.log(userSearch + "is the value you entered!");
     this.cleanInput = userSearch.replace(' ', "%20");
     console.log(this.cleanInput + " IS THE USER INPUT REPLACED WITH SPACES!");
-    this.requestUrl = this.baseUrl + this.cleanInput;
-    console.log(this.requestUrl + " IS THE FINAL REQUEST URL!!!");
-
-    // use service to get movie results
-    this.SearchService.getMovie(this.requestUrl).subscribe((results) => 
-    {
-      this.returnedSearch = results; 
-      console.log(this.returnedSearch.results);
-
-      // pass information 
-      this.router.navigate([`search/${this.returnedSearch}`]);
-
-    
-    
-    });
+    this.router.navigate([`search/${this.cleanInput}`]);
   }
 }
