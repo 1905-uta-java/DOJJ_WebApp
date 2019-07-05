@@ -4,7 +4,8 @@
     <h3>No Reviews</h3>
   </div>
 
-  <div class="review" *ngFor="let r of allReviews">
+  <div *ngIf="!noReviews">
+    <div class="review" *ngFor="let r of allReviews">
       <div class="row">
         <!--Column for the reviews authors information and such-->
         <div class="col-sm-3 author-info">
@@ -33,5 +34,7 @@
       </div>
       <div class="row divider">
       </div>
+    </div>
   </div>
+
 </div>

@@ -1,6 +1,5 @@
-interface Movie
-{
-    title : String;
-    description : String;
-    id : string;
+interface Movie {
+    title: string;
+    description: string;
+    id: string;
 }
