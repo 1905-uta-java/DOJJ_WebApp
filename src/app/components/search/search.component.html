@@ -2,10 +2,10 @@
   <div class="main-search-container">
 
     <!--Use Ng-For to display all search results into cards-->
-    <div class="card">
+    <div *ngFor = "let r of returnedSearch.results" class="card">
       <div class="card-body">
-        <h5 class="card-title"><a href="#">Movie Title</a></h5>
-        <p class="card-text">Movie description and information</p>
+        <h5 class="card-title"><a [routerLink] = "'/movie/' + r.id">{{r.title}}</a></h5>
+        <p class="card-text"> {{r.overview}}</p>
       </div>
     </div>
 

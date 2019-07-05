@@ -7,7 +7,8 @@ import { MovieComponent } from './components/movie/movie.component';
 const routes: Routes = [
   {path: 'home',
   component: HomeComponent},
-  {path: 'search',
+  // parameterize url to accomodate a variable 
+  {path: 'search/:result',
   component: SearchComponent},
   {path: '',
   redirectTo: '/home',
