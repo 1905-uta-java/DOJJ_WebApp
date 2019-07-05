@@ -14,6 +14,7 @@ import { RecentsComponent } from './components/recents/recents.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateReviewComponent } from './components/create-review/create-review.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RatingComponent } from './components/rating/rating.component';
     AccountDropdownComponent,
     RecentsComponent,
     CreateReviewComponent,
-    RatingComponent
+    RatingComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
