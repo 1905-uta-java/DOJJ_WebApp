@@ -6,12 +6,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  isAdmin = false;
-  userToBan : string = "SomeUser";
+  isAdmin = true;
+  username : string = "SomeUser";
+  email: string = "SomeUser@gmail.com";
+  isUserOfPage = true;
+  credScore : number = 6;
+  showConfirmation = false;
+  isBanned = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  changeIsSure()
+  {
+    console.log("Text should change to ARE YOU SURE?!");
+    this.showConfirmation = !this.showConfirmation;
+  }
+
+  banUser()
+  {
+    console.log("User has been banned!");
+    this.isBanned = true;
   }
 
 }
