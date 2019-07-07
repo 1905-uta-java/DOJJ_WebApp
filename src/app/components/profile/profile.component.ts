@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
   isAdmin = true;
-  username : string = "SomeUser";
-  email: string = "SomeUser@gmail.com";
+  username = 'SomeUser';
+  email = 'SomeUser@gmail.com';
   isUserOfPage = true;
-  credScore : number = 6;
+  credScore = 6;
   showConfirmation = false;
   isBanned = false;
 
@@ -19,15 +19,13 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
   }
 
-  changeIsSure()
-  {
-    console.log("Text should change to ARE YOU SURE?!");
+  changeIsSure() {
+    console.log('Text should change to ARE YOU SURE?!');
     this.showConfirmation = !this.showConfirmation;
   }
 
-  banUser()
-  {
-    console.log("User has been banned!");
+  banUser() {
+    console.log('User has been banned!');
     this.isBanned = true;
   }
 
