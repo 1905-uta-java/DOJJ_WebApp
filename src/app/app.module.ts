@@ -16,7 +16,7 @@ import { CreateReviewComponent } from './components/create-review/create-review.
 import { RatingComponent } from './components/rating/rating.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DisplayReviewsComponent } from './components/display-reviews/display-reviews.component';
-import { TheatresComponent } from './theatres/theatres.component';
+//import { TheatresComponent } from './theatres/theatres.component';
 import { DataService } from './services/data.service';
 import { TheatresNearbyService } from './services/theatres-nearby.service';
 //import { LeafletModule } from '@asymmetrik/ngx-leaflet';
@@ -34,8 +34,8 @@ import { AppErrorHandler } from './common/validators/app-error-handler';
     CreateReviewComponent,
     RatingComponent,
     ProfileComponent,
-    DisplayReviewsComponent,
-    TheatresComponent
+    DisplayReviewsComponent
+    //TheatresComponent
   ],
   imports: [
     BrowserModule,
