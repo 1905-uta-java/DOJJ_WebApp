@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BanService } from 'src/app/services/ban.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -11,24 +13,27 @@ export class ProfileComponent implements OnInit {
   email: string = "SomeUser@gmail.com";
   isUserOfPage = true;
   credScore : number = 6;
-  showConfirmation = false;
+  confirmButtonShow = false;
   isBanned = false;
+  banUrl : string = "http://ec2-3-19-30-224.us-east-2.compute.amazonaws.com:8080/MovieReviews/users"
 
-  constructor() { }
+  constructor(private banService: BanService) { }
 
   ngOnInit() {
   }
 
-  changeIsSure()
+  changeShowConfirmation()
   {
     console.log("Text should change to ARE YOU SURE?!");
-    this.showConfirmation = !this.showConfirmation;
+    this.confirmButtonShow = !this.confirmButtonShow;
+    console.log("show confirmation is: " + this.confirmButtonShow)
   }
 
-  banUser()
+  banUser(banService)
   {
-    console.log("User has been banned!");
+    console.log("Ban User is being called!");
     this.isBanned = true;
+    this.banService.banUser(this.banUrl);
   }
 
 }
