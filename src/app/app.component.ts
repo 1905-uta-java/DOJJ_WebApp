@@ -8,7 +8,7 @@ import { Router} from '@angular/router';
 })
 export class AppComponent {
   title = 'movie-review';
-  isLoggedIn = false;
+  isLoggedIn = true;
   isAdmin = false;
 
 
