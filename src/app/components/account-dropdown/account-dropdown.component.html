@@ -2,7 +2,7 @@
     Account
 </button>
 <div class="dropdown-menu account-menu" aria-labelledby="accountDropdown">
-  <a class="dropdown-item" (click) = "profileLink()"> Account</a>
+  <a class="dropdown-item" [routerLink] = "'/profile/' + username"> Account</a>
   <a class="dropdown-item" routerLink="/changepassword">Change Password</a>
   <a class="dropdown-item" (click)="logout()">Logout</a>
 </div>
