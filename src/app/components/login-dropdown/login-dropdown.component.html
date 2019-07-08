@@ -4,15 +4,16 @@
 </button>
 <div class="dropdown-menu login-menu" aria-labelledby="loginDropdown">
   <form class="px-4 py-3">
+    <span style="color: red" *ngIf="failedLogin">Failed to login</span>
     <div class="form-group">
       <label for="usernamedropdown">Username</label>
-      <input type="email" class="form-control" id="usernamedropdown" placeholder="Username">
+      <input [(ngModel)]="usname" name="username" class="form-control" id="usernamedropdown" placeholder="Username">
     </div>
     <div class="form-group">
       <label for="passworddropdown">Password</label>
-      <input type="password" class="form-control" id="passworddropdown" placeholder="Password">
+      <input [(ngModel)]="pass" name="password" type="password" class="form-control" id="passworddropdown" placeholder="Password">
     </div>
-    <button type="submit" class="btn btn-dark">Login</button>
+    <button type="submit" class="btn btn-dark" (click)="login()">Login</button>
   </form>
   <div class="dropdown-divider"></div>
   <a class="dropdown-item" routerLink="/signup">Sign up</a>

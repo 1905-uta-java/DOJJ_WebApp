@@ -21,7 +21,7 @@ export class CreateReviewComponent implements OnInit {
   constructor(private reviewService: ReviewsService) { }
 
   ngOnInit() {
-    if (sessionStorage.getItem('loggedIn') === 'true') {
+    if (localStorage.getItem('loggedIn') === 'true') {
       this.isLoggedIn = true;
     } else {
       this.isLoggedIn = false;

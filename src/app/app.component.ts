@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'movie-review';
   isLoggedIn = false;
   isAdmin = false;
+  ls = localStorage;
 
 
   cleanInput = '';
