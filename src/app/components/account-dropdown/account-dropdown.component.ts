@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountDropdownComponent implements OnInit {
 
+  username = '';
+
   constructor() { }
 
   ngOnInit() {
+    this.username = JSON.parse(localStorage.getItem('currentUser')).username;
   }
 
 
