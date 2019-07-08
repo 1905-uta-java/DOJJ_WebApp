@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsernameValidators } from './username.validators';
+import { EmailValidators } from './email.validators';
 
 @Component({
   selector: 'app-signup-form',
@@ -16,6 +17,12 @@ export class SignupFormComponent {
         UsernameValidators.cannotContainSpace
       ],
       UsernameValidators.shouldBeUnique),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        EmailValidators.cannotContainSpace
+      ],
+      EmailValidators.shouldBeUnique),
       password: new FormControl('', Validators.required)
     })
   });
@@ -28,5 +35,9 @@ export class SignupFormComponent {
 
   get username() {
     return this.form.get('account.username');
+  }
+
+  get email() {
+    return this.form.get('account.email');
   }
 }
