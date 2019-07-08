@@ -34,11 +34,13 @@ export class CreateReviewComponent implements OnInit {
     this.invalidInput = false;
     if (this.verifyFilledFields()) {
       const nReview = {id: '',
-      rating: this.starValue,
-      body: this.info,
-      userId: sessionStorage.getItem('userId'),
+      username: JSON.parse(localStorage.getItem('currentUser')).username,
+      reviewContent: this.info,
       movieId: this.MovieId,
-      credibilityScore: 0};
+      rating: this.starValue,
+      userScore: 0,
+      created: new Date()
+    };
 
       this.reviewService.postReview(nReview).subscribe((createdReview) => {
         if  (createdReview !== null) {
