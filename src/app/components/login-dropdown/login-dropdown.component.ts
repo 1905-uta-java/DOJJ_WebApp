@@ -30,6 +30,7 @@ export class LoginDropdownComponent implements OnInit {
         const priv = this.user.privilege;
         if (priv.charAt(1) === '2') {
           localStorage.setItem('isAdmin', 'true');
+          console.log('They are an admin');
         } else {
           localStorage.setItem('isAdmin', 'false');
         }

@@ -31,14 +31,14 @@ export class ProfileComponent implements OnInit {
         this.username = user.username;
         this.email = user.email;
       } else {
-        if (localStorage.getItem('isAdmin') === 'true') {
-          this.isAdmin = true;
-        }
         this.userService.getUser(this.username).subscribe((newUser) => {
           const user = newUser;
           this.credScore = user.reputation;
           this.username = user.username;
         });
+      }
+      if (localStorage.getItem('isAdmin') === 'true') {
+        this.isAdmin = true;
       }
     });
   }
