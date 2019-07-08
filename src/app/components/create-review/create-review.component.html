@@ -1,7 +1,7 @@
 <div class="container">
 
   <!--Grey out the options if not currently logged in-->
-  <div class="notLoggedIn" *ngIf="!isLoggedIn">
+  <div class="notLoggedIn" *ngIf="ls.getItem('isLoggedIn')!=='true'">
     <h2>Please login to create a review</h2>
   </div>
 

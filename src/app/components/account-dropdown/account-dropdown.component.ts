@@ -12,6 +12,7 @@ export class AccountDropdownComponent implements OnInit {
   ngOnInit() {
   }
 
+
   logout() {
     localStorage.setItem('currentUser', '');
     localStorage.setItem('isLoggedIn', 'false');

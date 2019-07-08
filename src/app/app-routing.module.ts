@@ -17,7 +17,7 @@ const routes: Routes = [
   pathMatch: 'full'},
   {path : 'movie/:id',
   component : MovieComponent},
-  {path : 'profile',
+  {path : 'profile/:user',
   component : ProfileComponent},
   {path: 'signup',
   component: SignupFormComponent},

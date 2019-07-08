@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,17 +9,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  isAdmin = true;
+  isAdmin = false;
   username = 'SomeUser';
   email = 'SomeUser@gmail.com';
-  isUserOfPage = true;
-  credScore = 6;
+  isUserOfPage = false;
+  credScore = 0;
   showConfirmation = false;
   isBanned = false;
+  ls = localStorage;
+  isCurrentUser;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.username = params.user;
+      if (this.username === JSON.parse(localStorage.getItem('currentUser')).username) {
+        const user = JSON.parse(localStorage.getItem('currentUser'));
+        this.isUserOfPage = true;
+        this.credScore = user.reputation;
+        this.username = user.username;
+        this.email = user.email;
+      } else {
+        if (localStorage.getItem('isAdmin') === 'true') {
+          this.isAdmin = true;
+        }
+        this.userService.getUser(this.username).subscribe((newUser) => {
+          const user = newUser;
+          this.credScore = user.reputation;
+          this.username = user.username;
+        });
+      }
+    });
   }
 
   changeIsSure() {

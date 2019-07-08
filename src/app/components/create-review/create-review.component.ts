@@ -11,21 +11,16 @@ export class CreateReviewComponent implements OnInit {
 
   @Input() MovieId: number;
   @Output() newReview = new EventEmitter();
-  isLoggedIn: boolean;
   isReview = true;
   starValue = 1;
   info = '';
   failedCreate = false;
   invalidInput = false;
+  ls = localStorage;
 
   constructor(private reviewService: ReviewsService) { }
 
   ngOnInit() {
-    if (localStorage.getItem('loggedIn') === 'true') {
-      this.isLoggedIn = true;
-    } else {
-      this.isLoggedIn = false;
-    }
   }
 
   // Set the star value when changed

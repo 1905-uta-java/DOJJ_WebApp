@@ -9,25 +9,25 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   // URL to the server
-  reviewsUrl = 'http://ec2-3-19-30-224.us-east-2.compute.amazonaws.com:8080/MovieReviews/user';
+  userUrl = 'http://ec2-3-19-30-224.us-east-2.compute.amazonaws.com:8080/MovieReviews/user';
 
   // Get reviews for a movie
-  getReviews(movieId: string) {
-    return this.http.get(this.reviewsUrl + '/' + movieId);
+  getUser(username: string) {
+    return this.http.get(this.userUrl + '/' + username);
   }
 
   // Create a new review for a movie
-  postReview(review) {
-    return this.http.post(this.reviewsUrl, review);
+  postUser(user) {
+    return this.http.post(this.userUrl, user);
   }
 
   // Update a review for a movie
-  putReview() {
+  putUser() {
 
   }
 
   // Delete a review for a movie
-  deleteReview() {
+  deleteUser() {
 
   }
 }
