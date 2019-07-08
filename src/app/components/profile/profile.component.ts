@@ -57,6 +57,7 @@ export class ProfileComponent implements OnInit {
     console.log("Ban User is being called!");
     this.isBanned = true;
     this.banService.banUser(this.username);
+    this.router.navigate(["home"]);
   }
 
 }
