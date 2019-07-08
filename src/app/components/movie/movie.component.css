@@ -1,0 +1,16 @@
+.details-movie{
+  width: 100%;
+  background-color: white;
+  border: 5px solid rgb(41, 43, 44);
+  border-radius: 5px;
+  margin-left: 0px;
+  margin-bottom: 5px;
+}
+
+.movie-image{
+
+}
+
+.movie-details{
+  border-left: 1px solid rgb(41, 43, 44);
+}

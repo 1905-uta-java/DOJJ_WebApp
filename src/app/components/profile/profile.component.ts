@@ -9,8 +9,8 @@ import { BanService } from 'src/app/services/ban.service';
 })
 export class ProfileComponent implements OnInit {
   isAdmin = true;
-  username : string = "SomeUser";
-  email: string = "SomeUser@gmail.com";
+  username = 'SomeUser';
+  email = 'SomeUser@gmail.com';
   isUserOfPage = true;
   credScore : number = 6;
   confirmButtonShow = false;

@@ -4,6 +4,8 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SignupFormComponent } from './components/signup-form/signup-form.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 const routes: Routes = [
   {path: 'home',
@@ -15,8 +17,12 @@ const routes: Routes = [
   pathMatch: 'full'},
   {path : 'movie/:id',
   component : MovieComponent},
-  {path : 'profile', 
-  component : ProfileComponent}
+  {path : 'profile',
+  component : ProfileComponent},
+  {path: 'signup',
+  component: SignupFormComponent},
+  {path: 'changepassword',
+  component: ChangePasswordComponent}
 ];
 
 @NgModule({

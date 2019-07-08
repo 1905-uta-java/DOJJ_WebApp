@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,13 @@ import { CreateReviewComponent } from './components/create-review/create-review.
 import { RatingComponent } from './components/rating/rating.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DisplayReviewsComponent } from './components/display-reviews/display-reviews.component';
+//import { TheatresComponent } from './theatres/theatres.component';
+import { DataService } from './services/data.service';
+import { TheatresNearbyService } from './services/theatres-nearby.service';
+//import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { AppErrorHandler } from './common/validators/app-error-handler';
+import { SignupFormComponent } from './components/signup-form/signup-form.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -29,15 +36,24 @@ import { DisplayReviewsComponent } from './components/display-reviews/display-re
     CreateReviewComponent,
     RatingComponent,
     ProfileComponent,
-    DisplayReviewsComponent
+    DisplayReviewsComponent,
+    //TheatresComponent
+    SignupFormComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
+    //LeafletModule.forRoot(),
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    DataService,
+    TheatresNearbyService,
+    { provide: ErrorHandler, useClass: AppErrorHandler }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

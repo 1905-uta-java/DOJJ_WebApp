@@ -1,14 +1,24 @@
-<div class = "float-right">
-  <p *ngIf = "isAdmin">
-    <button class = "btn btn-danger" [hidden] = "confirmButtonShow" (click) = "changeShowConfirmation()" > Ban {{username}} </button>
-    <button class = "btn btn-danger" [hidden] = "!confirmButtonShow" [disabled] = isBanned (click) = "banUser()" > Click again to ban {{username}}. Click "Don't Ban" to cancel </button>
-    <button class = "btn btn-success" [hidden] = "!confirmButtonShow" (click) = "changeShowConfirmation()" > DON'T BAN </button>
-  </p>
-</div>
-<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
 
-<div class = "text-center">
-  <h1> {{username}} </h1>
-  <p> Credibilitly Score is: {{credScore}}</p>
-  <p *ngIf = isUserOfPage> Email is: {{email}} </p>
+    </div>
+    <div class="col-sm-6 profile-container">
+      <div>
+        <h1 class="header-username"> {{username}}
+          <span *ngIf = "isAdmin">
+            <button class = "btn btn-danger btn-ban" [hidden] = "showConfirmation" (click) = "changeIsSure()" > Ban {{username}} </button>
+            <button class = "btn btn-danger btn-ban" [hidden] = "!showConfirmation" [disabled] = "isBanned" (click) = "banUser()" > Click again to ban {{username}}. Click "Don't Ban" to cancel </button>
+            <button class = "btn btn-success btn-ban" [hidden] = "!showConfirmation || isBanned" (click) = "changeIsSure()" > DON'T BAN </button>
+          </span>
+        </h1>
+        <p *ngIf = isUserOfPage> Email is: {{email}} </p>
+        <h5 class="text-center"> Credibilitly Score</h5>
+        <h3 class="text-center">{{credScore}}</h3>
+      </div>
+    </div>
+    <div class="col-sm-3">
+
+    </div>
+  </div>
 </div>

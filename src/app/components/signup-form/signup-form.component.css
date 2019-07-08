@@ -1,17 +1,8 @@
-.profile-container{
+.form-container{
   width: 100%;
   background-color: white;
   border: 5px solid rgb(41, 43, 44);
   border-radius: 5px;
   padding-bottom: 10px;
   padding-top: 5px;
-}
-
-.header-username{
-  border-bottom: 1px solid rgb(41, 43, 44);
-}
-
-.btn-ban{
-  height: 35px;
-  margin-bottom: 5px !important;
 }
