@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { BanService } from 'src/app/services/ban.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -14,12 +16,12 @@ export class ProfileComponent implements OnInit {
   email = 'SomeUser@gmail.com';
   isUserOfPage = false;
   credScore = 0;
-  showConfirmation = false;
+  confirmButtonShow = false;
   isBanned = false;
   ls = localStorage;
   isCurrentUser;
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private banService : BanService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -43,14 +45,18 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  changeIsSure() {
-    console.log('Text should change to ARE YOU SURE?!');
-    this.showConfirmation = !this.showConfirmation;
+  changeShowConfirmation()
+  {
+    console.log("Text should change to ARE YOU SURE?!");
+    this.confirmButtonShow = !this.confirmButtonShow;
+    console.log("show confirmation is: " + this.confirmButtonShow)
   }
 
-  banUser() {
-    console.log('User has been banned!');
+  banUser()
+  {
+    console.log("Ban User is being called!");
     this.isBanned = true;
+    this.banService.banUser(this.username);
   }
 
 }
