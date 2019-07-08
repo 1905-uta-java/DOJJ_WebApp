@@ -18,7 +18,6 @@ export class DisplayReviewsComponent implements OnInit {
   ngOnInit() {
     this.reviewService.getReviews(this.MovieId).subscribe((reviews) => {
       this.allReviews = reviews;
-      console.log(reviews);
       if (this.allReviews.length === 0) {
         this.noReviews = true;
       }
