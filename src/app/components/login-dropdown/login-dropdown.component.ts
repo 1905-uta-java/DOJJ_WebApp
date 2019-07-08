@@ -28,7 +28,7 @@ export class LoginDropdownComponent implements OnInit {
         localStorage.setItem('isLoggedIn', 'true');
         console.log(this.user);
         const priv = this.user.privilege;
-        if (priv.charAt(0) === '1') {
+        if (priv.charAt(1) === '2') {
           localStorage.setItem('isAdmin', 'true');
         } else {
           localStorage.setItem('isAdmin', 'false');
