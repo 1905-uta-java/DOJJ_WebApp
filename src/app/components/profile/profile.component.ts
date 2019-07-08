@@ -38,8 +38,8 @@ export class ProfileComponent implements OnInit {
         }
         this.userService.getUser(this.username).subscribe((newUser) => {
           const user = newUser;
-          this.credScore = user.reputation;
-          this.username = user.username;
+          // this.credScore = user.reputation;
+          // this.username = user.username;
         });
       }
     });

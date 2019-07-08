@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AppErrorHandler } from './common/validators/app-error-handler';
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+
 
 @NgModule({
   declarations: [
@@ -56,4 +58,9 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule implements OnInit{ 
+  ngOnInit()
+  {
+    localStorage.setItem("isLoggedIn", "false");
+  }
+}

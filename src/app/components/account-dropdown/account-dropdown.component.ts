@@ -19,4 +19,9 @@ export class AccountDropdownComponent implements OnInit {
     localStorage.setItem('isAdmin', 'false');
   }
 
+  profileLink()
+  {
+    
+  }
+
 }

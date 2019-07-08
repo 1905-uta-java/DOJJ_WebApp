@@ -6,11 +6,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BanService {
 
+  url : string = "http://ec2-3-19-30-224.us-east-2.compute.amazonaws.com:8080/MovieReviews/users";
+
   constructor(private http : HttpClient) { }
 
-  banUser(url : string)
+  banUser(username : string)
   {
     console.log("This user is aboutk to be banned!");
-    return this.http.delete(url);
+    return this.http.delete(this.url + "/" + username);
   }
 }
