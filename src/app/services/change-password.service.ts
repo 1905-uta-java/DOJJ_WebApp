@@ -15,6 +15,5 @@ export class CreateNewUserService {
     submitPasswordChange(mail, usname, pass) {
       const updatePassword = {email: mail, username: usname, password: pass, reputation: 0, privilege: ''};
       return this.http.put(this.newUserUrl, updatePassword);
-
     }
 }
