@@ -1,0 +1,8 @@
+<div *ngFor="let newRelease of newReleases" class="media">
+    <img src="https://image.tmdb.org/t/p/w200{{ newRelease.backdrop_path }}" class="align-self-center mr-3" alt="poster image thumbnail">
+    <div class="media-body">
+      <h5 class="mt-0">{{ newRelease.title }}</h5>
+      <p class="mb-0">release date: {{ newRelease.release_date }}</p>
+      <p class="mb-0">tmdb score: {{ newRelease.vote_average }}</p>
+    </div>
+</div>

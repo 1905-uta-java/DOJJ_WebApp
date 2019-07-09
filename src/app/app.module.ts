@@ -24,6 +24,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AppErrorHandler } from './common/validators/app-error-handler';
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { NewReleasesComponent } from './components/new-releases/new-releases.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     DisplayReviewsComponent,
     TheatresComponent,
     SignupFormComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    NewReleasesComponent
   ],
   imports: [
     BrowserModule,

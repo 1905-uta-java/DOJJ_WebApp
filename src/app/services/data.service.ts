@@ -11,28 +11,28 @@ import { NotFoundError } from '../common/validators/not-found-error';
   providedIn: 'root'
 })
 export class DataService {
-  constructor(private http: HttpClient, private headers: HttpHeaders) { }
+  constructor(private url: string, private http: HttpClient, private headers?: HttpHeaders) { }
 
-  getAll(url) {
-      return this.http.get(url, {headers: this.headers}).pipe
+  getAll() {
+      return this.http.get(this.url, {headers: this.headers}).pipe
       (map(response => response)).pipe
       (catchError(this.handleError));
   }
 
-  create(resource: { title: string; }, url) {
-    return this.http.post(url, JSON.stringify(resource)).pipe
+  create(resource: { title: string; }){
+    return this.http.post(this.url, JSON.stringify(resource)).pipe
     (map(response => response)).pipe
     (catchError(this.handleError));
   }
 
-  update(resource, url){
-    return this.http.patch(url + '/' + resource.id, JSON.stringify({ isRead: true })).pipe
+  update(resource){
+    return this.http.patch(this.url + '/' + resource.id, JSON.stringify({ isRead: true })).pipe
       (map(response => response)).pipe
       (catchError(this.handleError));
   }
 
-  delete(id, url){
-    return this.http.delete(url + '/' + id).pipe
+  delete(id){
+    return this.http.delete(this.url + '/' + id).pipe
     (map(response => response)).pipe
     (catchError(this.handleError));
   }
@@ -42,7 +42,7 @@ export class DataService {
       return Observable.throw(new BadInput(error.json));
     if (error.status===404)
       return Observable.throw(new NotFoundError());
-    return Observable.throw(new AppError(error));
+    return Observable.throw(new AppError(error));  
   }
 
 }
