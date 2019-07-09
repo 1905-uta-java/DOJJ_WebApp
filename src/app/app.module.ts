@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { OnInit } from '@angular/core';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { AppErrorHandler } from './common/validators/app-error-handler';
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { NewReleasesComponent } from './components/new-releases/new-releases.component';
+
 
 @NgModule({
   declarations: [

@@ -7,9 +7,9 @@
       <div>
         <h1 class="header-username"> {{username}}
           <span *ngIf = "isAdmin">
-            <button class = "btn btn-danger btn-ban" [hidden] = "showConfirmation" (click) = "changeIsSure()" > Ban {{username}} </button>
-            <button class = "btn btn-danger btn-ban" [hidden] = "!showConfirmation" [disabled] = "isBanned" (click) = "banUser()" > Click again to ban {{username}}. Click "Don't Ban" to cancel </button>
-            <button class = "btn btn-success btn-ban" [hidden] = "!showConfirmation || isBanned" (click) = "changeIsSure()" > DON'T BAN </button>
+            <button class = "btn btn-danger btn-ban" [hidden] = "confirmButtonShow" (click) = "changeShowConfirmation()" > Ban {{username}} </button>
+            <button class = "btn btn-danger btn-ban" [hidden] = "!confirmButtonShow" [disabled] = "isBanned" (click) = "banUser()" > Click again to ban {{username}}. Click "Don't Ban" to cancel </button>
+            <button class = "btn btn-success btn-ban" [hidden] = "!confirmButtonShow || isBanned" (click) = "changeShowConfirmation()" > DON'T BAN </button>
           </span>
         </h1>
         <p *ngIf = isUserOfPage> Email is: {{email}} </p>
