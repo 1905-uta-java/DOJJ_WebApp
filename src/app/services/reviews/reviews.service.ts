@@ -26,7 +26,8 @@ export class ReviewsService {
   putReview(review) {
    // return review object
    
-   return this.http.put(this.reviewsUrl, review);
+   return this.http.put(this.reviewsUrl, review, {responseType: 'text'});
+   
 
   }
 

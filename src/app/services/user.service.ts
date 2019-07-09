@@ -18,12 +18,12 @@ export class UserService {
 
   // Create a new review for a movie
   postUser(user) {
-    return this.http.post(this.userUrl, user);
+    return this.http.post(this.userUrl, user, {responseType: 'text'});
   }
 
   // Update a review for a movie
   putUser(user) {
-    return this.http.put(this.userUrl, user);
+    return this.http.put(this.userUrl, user, {responseType: 'text'});
   }
 
   // Delete a review for a movie
