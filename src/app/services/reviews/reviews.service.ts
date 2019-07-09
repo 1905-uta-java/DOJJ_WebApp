@@ -25,9 +25,9 @@ export class ReviewsService {
   // Update a review for a movie
   putReview(review) {
    // return review object
-   
-   return this.http.put(this.reviewsUrl, review, {responseType: 'text'});
-   
+    console.log('kill me');
+    return this.http.put(this.reviewsUrl, review, {responseType: 'text'});
+
 
   }
 

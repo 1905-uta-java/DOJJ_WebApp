@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ReviewsService } from 'src/app/services/reviews/reviews.service';
-import { UserService } from 'src/app/services/user.service';
+import { ReputationService } from 'src/app/services/reputation.service';
 
 @Component({
   selector: 'app-display-reviews',
@@ -15,7 +15,7 @@ export class DisplayReviewsComponent implements OnInit {
   allReviews: any = [];
 
 
-  constructor(private reviewService: ReviewsService, private userService : UserService) { }
+  constructor(private repService: ReputationService, private reviewService: ReviewsService) { }
 
   ngOnInit() {
     this.reviewService.getReviews(this.MovieId).subscribe((reviews) => {
@@ -24,7 +24,7 @@ export class DisplayReviewsComponent implements OnInit {
         this.noReviews = true;
       }
     });
-    
+
 
   }
 
@@ -33,7 +33,7 @@ export class DisplayReviewsComponent implements OnInit {
     console.log("Score is being increased for " + username);
 
     // establish our object
-    const nReview = 
+    const nReview =
     {
       id: reviewId,
       username: '',
@@ -45,19 +45,19 @@ export class DisplayReviewsComponent implements OnInit {
     };
 
     const user = {email: '', username: username, password: '', reputation: 1, privilege: ''};
-
+    console.log(nReview);
+    console.log(user);
     // send it off with the service
-    this.reviewService.putReview(nReview);
-    
-    // USER SERVICE CALL GOES HERE
-    this.userService.putUser(user);
+    this.repService.putRep(user, nReview).subscribe(response => {
+
+    });
   }
 
   decreaseCredScore(username : string, reviewId : number)
   {
     console.log("Score is being decreased for " + username);
 
-    const nReview = 
+    const nReview =
     {
       id: reviewId,
       username: '',
@@ -70,10 +70,11 @@ export class DisplayReviewsComponent implements OnInit {
 
     const user = {email: '', username: username, password: '', reputation: -1, privilege: ''};
 
-    this.reviewService.putReview(nReview);
-    
-    // USER SERVICE CALL GOES HERE
-    this.userService.putUser(user);
+    console.log(nReview);
+    console.log(user);
+
+    this.repService.putRep(user, nReview).subscribe(response => {
+    });
   }
 
 }
