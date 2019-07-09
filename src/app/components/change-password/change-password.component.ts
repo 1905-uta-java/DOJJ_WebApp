@@ -22,6 +22,10 @@ export class ChangePasswordComponent  {
     });
   }
 
+  ngOnInit() {
+    console.log(this.form);
+  }
+
   get oldPassword() {
     return this.form.get('oldPassword');
   }

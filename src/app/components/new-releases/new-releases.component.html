@@ -1,0 +1,8 @@
+<div *ngFor="let newRelease of newReleases" class="media release-info">
+    <img src="https://image.tmdb.org/t/p/w200{{ newRelease.backdrop_path }}" class="align-self-center mr-3" alt="poster image thumbnail">
+    <div class="media-body">
+      <h5 class="mt-0"><a [routerLink] = "'/movie/' + newRelease.id">{{ newRelease.title }}</a></h5>
+      <p class="mb-0">Release Date: {{ newRelease.release_date }}</p>
+      <p class="mb-0">TMDB Score: {{ newRelease.vote_average }}</p>
+    </div>
+</div>

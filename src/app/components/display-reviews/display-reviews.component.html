@@ -11,7 +11,7 @@
         <div class="col-sm-3 author-info">
           <!--Author name and linking to profile-->
           <div class="row username">
-            <a [routerLink]="['/routePath']"><h4>{{r.username}}</h4></a>
+            <a [routerLink] = "'/profile/'+ r.username"><h4>{{r.username}}</h4></a>
           </div>
 
           <!--Rating they gave to the movie-->
@@ -29,7 +29,7 @@
 
         <!--Column for the review description-->
         <div class="col-sm-8 review-info">
-          {{r.body}}
+          {{r.reviewContent}}
         </div>
       </div>
       <div class="row divider">

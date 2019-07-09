@@ -7,13 +7,12 @@
     -->
     <div class="row details-movie">
       <!--Movie image or picture-->
-      <img src="https://image.tmdb.org/t/p/w200{{ movie.backdrop_path }}" class="align-self-center mr-3" alt="poster image thumbnail">
-      <div class="col-sm-4 movie-image">
-
+      <div class="col-sm-3 movie-image">
+        <img src="https://image.tmdb.org/t/p/w200{{ movie.backdrop_path }}" class="align-self-center mr-3 rounded mx-auto d-block" alt="poster image thumbnail">
       </div>
 
       <!--Movie description and information-->
-      <div class="col-sm-8 movie-details">
+      <div class="col-sm-9 movie-details">
         <h3>Title: {{movie.title}}</h3>
         <h6>Overview: {{movie.overview}}</h6>
         <h6>Release Date: {{movie.release_date}}</h6>
