@@ -22,20 +22,22 @@ export class SearchComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private searchService: SearchService, private router: Router) {}
   ngOnInit() {
+    // use constructor to obtain user input from search and place user input in search variable
     this.route.params.subscribe(params => {
         this.searched = params.result;
       });
 
 
 
-    // clean user results to fit API calls
+    // use obtained parameters-- obtained user input-- to assemble the request URL
     this.requestUrl = this.baseUrl + this.searched;
     console.log(this.requestUrl + ' IS THE FINAL REQUEST URL!!!');
 
     // use service to get movie results
-    this.searchService.getMovie(this.requestUrl).subscribe((information) => {
+    this.searchService.getMovie(this.requestUrl).subscribe((information) => 
+    {
       this.returnedSearch = information;
-      console.log(this.returnedSearch.results);
+      console.log(this.returnedSearch[0] + "ARE RETURNED RESULTS");
 
 
     });
