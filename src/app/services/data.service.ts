@@ -42,7 +42,7 @@ export class DataService {
       return Observable.throw(new BadInput(error.json));
     if (error.status===404)
       return Observable.throw(new NotFoundError());
-    return Observable.throw(new AppError(error));  
+    return Observable.throw(new AppError(error));
   }
 
 }
