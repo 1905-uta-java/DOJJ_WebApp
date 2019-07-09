@@ -19,7 +19,7 @@ export class ReviewsService {
 
   // Create a new review for a movie
   postReview(review) {
-    return this.http.post(this.reviewsUrl, review);
+    return this.http.post(this.reviewsUrl, review, {responseType: 'text'});
   }
 
   // Update a review for a movie

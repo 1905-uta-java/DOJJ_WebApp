@@ -33,8 +33,9 @@ export class CreateReviewComponent implements OnInit {
     this.failedCreate = false;
     this.invalidInput = false;
     if (this.verifyFilledFields()) {
+      const user = JSON.parse(localStorage.getItem('currentUser'));
       const nReview = {id: '',
-      username: JSON.parse(localStorage.getItem('currentUser')).username,
+      username: user.username,
       reviewContent: this.info,
       movieId: this.MovieId,
       rating: this.starValue,
@@ -52,6 +53,9 @@ export class CreateReviewComponent implements OnInit {
     } else {
       this.invalidInput = true;
     }
+
+    this.info = '';
+    this.starValue = 1;
 
   }
 
