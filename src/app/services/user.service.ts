@@ -22,8 +22,8 @@ export class UserService {
   }
 
   // Update a review for a movie
-  putUser() {
-
+  putUser(user) {
+    return this.http.put(this.userUrl, user);
   }
 
   // Delete a review for a movie

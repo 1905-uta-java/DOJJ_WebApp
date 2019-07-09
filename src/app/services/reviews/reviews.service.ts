@@ -23,8 +23,10 @@ export class ReviewsService {
   }
 
   // Update a review for a movie
-  putReview() {
+  putReview(review) {
    // return review object
+   
+   return this.http.put(this.reviewsUrl, review);
 
   }
 

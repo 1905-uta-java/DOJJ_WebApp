@@ -33,6 +33,8 @@ export class CreateReviewComponent implements OnInit {
     this.failedCreate = false;
     this.invalidInput = false;
     if (this.verifyFilledFields()) {
+
+      // put the id and score in this review object and pass it in. 
       const nReview = {id: '',
       username: JSON.parse(localStorage.getItem('currentUser')).username,
       reviewContent: this.info,
