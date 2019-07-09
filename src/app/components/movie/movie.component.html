@@ -7,19 +7,18 @@
     -->
     <div class="row details-movie">
       <!--Movie image or picture-->
+      <img src="https://image.tmdb.org/t/p/w200{{ movie.backdrop_path }}" class="align-self-center mr-3" alt="poster image thumbnail">
       <div class="col-sm-4 movie-image">
 
       </div>
 
       <!--Movie description and information-->
       <div class="col-sm-8 movie-details">
-        <h3>Movie Title</h3>
-        <h6>description</h6>
-        <h6>Release Year</h6>
-        <h6>Other Info</h6>
-        <h6>More Info</h6>
-        <h6>Even more Info</h6>
-        <h6>Can i get more info!</h6>
+        <h3>Title: {{movie.title}}</h3>
+        <h6>Overview: {{movie.overview}}</h6>
+        <h6>Release Date: {{movie.release_date}}</h6>
+        <h6>Status: {{movie.status}}</h6>
+        <h6>Original Language: {{movie.original_language}}</h6>
       </div>
     </div>
 
