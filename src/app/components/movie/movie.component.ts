@@ -15,26 +15,18 @@ export class MovieComponent implements OnInit {
   movieId;
   createdReview;
   url;
-  movie = {};
-  title: string;
-  description: string;
-  popularity: number;
-  release_date: Date;
-  status: string;
-  genres: string;
+  movie: any = {title: '', overview: '', release_date: '', status: '', original_language: '', backdrop_path: ''};
 
 
   // use obtained parameters to assemble the request URL
   constructor(private route: ActivatedRoute, private router: Router, private movieInfoService: MovieInfoService) { }
   ngOnInit() {
-    this.route.params.subscribe(params =>
-      {
+    this.route.params.subscribe(params => {
         this.movieId = params.id;
         console.log(this.movieId);
         this.url = 'https://api.themoviedb.org/3/movie/' + this.movieId + '?api_key=19fd2eec2c34304e81d242a6fe7020f5&language=en-US';
         console.log(this.url);
-        this.movieInfoService.getMovieInfo(this.url).subscribe((information) =>
-        {
+        this.movieInfoService.getMovieInfo(this.url).subscribe((information) => {
           this.movie = information;
           // this.title = this.movie.title;
           // this.returnedMovie = information;
