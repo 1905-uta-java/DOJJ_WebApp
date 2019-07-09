@@ -21,9 +21,9 @@
 
           <!--User can mark if was helpful or not-->
           <div class="row score">
-            <a class="fas fa-arrow-circle-up icons" (click) = "increaseCredScore(r.username, r.id, r.userScore)"></a>
-            <span class="reviewScore">{{r.credibilityScore}}</span>
-            <a class="fas fa-arrow-circle-down icons" (click) = "decreaseCredScore(r.username, r.id, r.userScore)" ></a>
+            <button class = "btn btn-success" [disabled] = "positiveButtonClicked && id === r.id"   (click) = "increaseCredScore(r.username, r.id, r.userScore)" id = "r.id"></button>
+            <span class="reviewScore">{{r.userScore}}</span>
+            <button class = "btn btn-danger" [disabled] = "negativeButtonClicked && id === r.id"  (click) = "decreaseCredScore(r.username, r.id, r.userScore)" id = "r.id" ></button>
           </div>
         </div>
 

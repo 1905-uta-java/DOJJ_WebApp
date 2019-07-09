@@ -14,6 +14,6 @@ export class LoginService {
   // Create a new review for a movie
   postLogin(usname, pass) {
     const login = {email: '', username: usname, password: pass, reputation: 0, privilege: ''};
-    return this.http.post(this.reviewsUrl, login);
+    // return this.http.post(this.reviewsUrl, login);
   }
 }

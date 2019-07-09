@@ -13,6 +13,9 @@ export class DisplayReviewsComponent implements OnInit {
   isNew = false;
   @Input() MovieId;
   allReviews: any = [];
+  neitherButtonClicked = true;
+  positiveButtonClicked = false;
+  negativeButtonClicked = false;
 
 
   constructor(private reviewService: ReviewsService, private userService : UserService) { }
@@ -28,9 +31,12 @@ export class DisplayReviewsComponent implements OnInit {
 
   }
 
-  increaseCredScore(username : string, reviewId : number)
+  increaseCredScore(un : string, reviewId : string)
   {
-    console.log("Score is being increased for " + username);
+    this.positiveButtonClicked = true;
+    this.neitherButtonClicked = false;
+    this.negativeButtonClicked = false;
+    console.log("increase score is being called for " + un);
 
     // establish our object
     const nReview = 
@@ -40,22 +46,28 @@ export class DisplayReviewsComponent implements OnInit {
       reviewContent: '',
       movieId: '',
       rating: '',
-      userScore: 1,
+      userScore: "1",
       created: ''
     };
 
-    const user = {email: '', username: username, password: '', reputation: 1, privilege: ''};
+    const user = {email: '', username: un, password: '', reputation: "1", privilege: ''};
 
     // send it off with the service
-    this.reviewService.putReview(nReview);
+    if (this.positiveButtonClicked)
+    {
+      this.reviewService.putReview(nReview);
     
-    // USER SERVICE CALL GOES HERE
-    this.userService.putUser(user);
+      // USER SERVICE CALL GOES HERE
+      this.userService.putUser(user);
+    }
   }
 
-  decreaseCredScore(username : string, reviewId : number)
+  decreaseCredScore(un : string, reviewId : string)
   {
-    console.log("Score is being decreased for " + username);
+    this.negativeButtonClicked = true;
+    this.positiveButtonClicked = false;
+    this.neitherButtonClicked = false;
+    console.log("decrease score being called for " + un);
 
     const nReview = 
     {
@@ -64,16 +76,19 @@ export class DisplayReviewsComponent implements OnInit {
       reviewContent: '',
       movieId: '',
       rating: '',
-      userScore: -1,
+      userScore: "-1",
       created: ''
     };
 
-    const user = {email: '', username: username, password: '', reputation: -1, privilege: ''};
+    const user = {email: '', username: un, password: '', reputation: "-1", privilege: ''};
 
-    this.reviewService.putReview(nReview);
+    if (this.negativeButtonClicked)
+    {
+      this.reviewService.putReview(nReview);
     
-    // USER SERVICE CALL GOES HERE
-    this.userService.putUser(user);
+      // USER SERVICE CALL GOES HERE
+      this.userService.putUser(user);
+    }
   }
 
 }

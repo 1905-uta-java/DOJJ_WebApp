@@ -25,8 +25,8 @@ export class ReviewsService {
   // Update a review for a movie
   putReview(review) {
    // return review object
-   
-   return this.http.put(this.reviewsUrl, review, {responseType: 'text'});
+   console.log("Review service has been reached!");
+  //  return this.http.put(this.reviewsUrl, review).subscribe(response => {});
    
 
   }
