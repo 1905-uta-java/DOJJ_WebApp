@@ -16,6 +16,13 @@ export class TheatresComponent implements OnInit {
     iconUrl: 'https://res.cloudinary.com/davd4ynha/image/upload/v1562383672/popcorn.jpg'
   });
 
+  layersControl = {
+    baseLayers: {
+      'Open Street Map': L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '' }),
+      'Water Color': L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '' })
+    }
+  };
+
   options = {
     layers: [],
     zoom: 10,
@@ -24,17 +31,9 @@ export class TheatresComponent implements OnInit {
   };
   markers: Layer[] = [];
 
-	addMarker(x:number,y:number,name:string,address: string) {
-		const newMarker = marker([x,y],{icon: this.popcornIcon}).bindPopup(name+'<br>'+address);
-		this.markers.push(newMarker);
-	}
-
-
-  layersControl = {
-    baseLayers: {
-      'Open Street Map': L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '' }),
-      'Water Color': L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '' })
-    }
+  addMarker(x: number, y: number, name: string, address: string) {
+    const newMarker = marker([x, y], { icon: this.popcornIcon}).bindPopup(name + '<br>' + address);
+    this.markers.push(newMarker);
   }
 
   // showTheatreName(){
@@ -46,10 +45,10 @@ export class TheatresComponent implements OnInit {
       // theatres nearby holds array of objects
       // from http response
       let theatresNearby: any;
-      let latArray = [];
-      let lonArray = [];
-      let nameArray = [];
-      let addressArray = [];
+      const latArray = [];
+      const lonArray = [];
+      const nameArray = [];
+      const addressArray = [];
 
       this.options = {
         layers: [
@@ -61,24 +60,23 @@ export class TheatresComponent implements OnInit {
       };
 
 
-      this.service.getAll('https://api.internationalshowtimes.com/v4/cinemas/?location=32.730700,-97.114101&distance=30')
-        .subscribe(theatres =>{ theatres =  theatres;
+      this.service.getAll()
+        .subscribe(theatres => {
             // returns an array of objects
             theatresNearby = theatres;
             // parse to cinemas array
             theatresNearby = theatresNearby.cinemas;
-              console.log(theatresNearby);
-            for (let i=0; i<theatresNearby.length; i++){
+            for (let i=0; i<theatresNearby.length; i++) {
               latArray.push(theatresNearby[i].location.lat);
               lonArray.push(theatresNearby[i].location.lon);
               nameArray.push(theatresNearby[i].name);
-              addressArray.push(theatresNearby[i].location.address.display_text)
+              addressArray.push(theatresNearby[i].location.address.display_text);
             }
             // pass each lat long as argument into addMarker method
-            for (let i=0; i<theatresNearby.length; i++){
-              this.addMarker(latArray[i],lonArray[i],nameArray[i],addressArray[i]);
+            for (let i = 0; i < theatresNearby.length; i++) {
+              this.addMarker(latArray[i], lonArray[i], nameArray[i], addressArray[i]);
             }
 
-          })
+          });
     }
 }
