@@ -9,7 +9,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   // URL to the server
-  userUrl = 'http://ec2-3-19-30-224.us-east-2.compute.amazonaws.com:8080/MovieReviews/user';
+  userUrl = 'http://ec2-3-19-30-224.us-east-2.compute.amazonaws.com:8080/MovieReviews/users';
 
   // Get reviews for a movie
   getUser(username: string) {

@@ -1,5 +1,5 @@
-import { PasswordValidators } from './password.validators';
 import { Component, OnInit } from '@angular/core';
+import { PasswordValidators } from './password.validators';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,10 +7,15 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.css']
 })
-export class ChangePasswordComponent  {
+
+export class ChangePasswordComponent implements OnInit {
   form: FormGroup;
-  constructor(fb: FormBuilder){
-    this.form = fb.group({
+
+  constructor(private fb: FormBuilder) {
+  }
+
+  ngOnInit() {
+    this.form = this.fb.group({
       oldPassword: ['',
         Validators.required,
         PasswordValidators.validOldPassword
