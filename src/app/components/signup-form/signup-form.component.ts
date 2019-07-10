@@ -23,7 +23,7 @@ export class SignupFormComponent implements OnInit {
       ]),
       'email': new FormControl('', [
         Validators.required
-      ]), 
+      ]),
       'password': new FormControl('', Validators.required)
     })
   });
@@ -42,9 +42,9 @@ export class SignupFormComponent implements OnInit {
      })
 
   }
- 
+
   ngOnInit() {
-    
+
     }
 
 };
