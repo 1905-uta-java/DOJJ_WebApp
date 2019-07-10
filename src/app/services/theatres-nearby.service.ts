@@ -18,7 +18,7 @@ export class TheatresNearbyService extends DataService{
 
     // send request
     // use location of client IP address instead
-    // 30 mi radius
+    // 30 km radius
      super(`https://api.internationalshowtimes.com/v4/cinemas/?location=${x},${y}&distance=30`, http, headers);
    }
 }
