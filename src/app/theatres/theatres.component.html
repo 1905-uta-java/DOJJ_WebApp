@@ -1,13 +1,11 @@
-<div class="container">
-    <div class="row">
-        <label class="col col-form-label">{{markers?.length}} theatres in 19 mile radius</label>
-    </div>
-    <div class="mapstuff"
-         leaflet
-         [leafletOptions]="options"
-         [leafletLayersControl]="layersControl"
-         [leafletLayers]="markers"
-         >
-    </div>
+<div class="row">
+    <label class="col col-form-label">{{markers?.length}} theatres in 19 mile radius</label>
 </div>
-
+<div style="height: 300px;"
+     leaflet 
+     [leafletOptions]="options"
+     [leafletLayersControl]="layersControl"
+     [leafletLayers]="markers"
+     (leafletMapReady)="onMapReady($event)"
+     >
+</div>
