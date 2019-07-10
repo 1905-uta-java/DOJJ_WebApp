@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsernameValidators } from './username.validators';
-import { CreateNewUserService } from '../services/create-new-user.service';
+import { CreateNewUserService } from 'src/app/services/create-new-user.service';
+
 
 @Component({
   selector: 'app-signup-form',
@@ -18,28 +19,28 @@ export class SignupFormComponent implements OnInit {
   // to check if available
   form = new FormGroup({
     account: new FormGroup({
-      'username': new FormControl('', [
+      username: new FormControl('', [
         Validators.required
       ]),
-      'email': new FormControl('', [
+      email: new FormControl('', [
         Validators.required
       ]),
-      'password': new FormControl('', Validators.required)
+      password: new FormControl('', Validators.required)
     })
   });
 
   constructor(private createNewUserService: CreateNewUserService) { }
 
-  submitSignup(){
-    this.mail= this.form.get('account.email').value;
+  submitSignup() {
+    this.mail = this.form.get('account.email').value;
     this.usname = this.form.get('account.username').value;
     this.pass = this.form.get('account.password').value;
 
     console.log('email is ' + this.mail + '. user name is '
-     + this.usname + '. password is '+ this.pass);
+     + this.usname + '. password is ' + this.pass);
 
-     this.createNewUserService.postNewUser(this.mail, this.usname, this.pass).subscribe((currentUser) => {
-     })
+    this.createNewUserService.postNewUser(this.mail, this.usname, this.pass).subscribe((currentUser) => {
+    });
 
   }
 
@@ -47,4 +48,4 @@ export class SignupFormComponent implements OnInit {
 
     }
 
-};
+}

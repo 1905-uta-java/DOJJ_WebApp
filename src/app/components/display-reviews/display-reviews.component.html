@@ -21,9 +21,9 @@
 
           <!--User can mark if was helpful or not-->
           <div class="row score">
-            <a class="fas fa-arrow-circle-up icons" (click) = "increaseCredScore(r.username, r.id, r.userScore)"></a>
+            <a class="fas fa-arrow-circle-up icons" (click) = "increaseCredScore(r)"></a>
             <span class="reviewScore">{{r.userScore}}</span>
-            <a class="fas fa-arrow-circle-down icons" (click) = "decreaseCredScore(r.username, r.id, r.userScore)" ></a>
+            <a class="fas fa-arrow-circle-down icons" (click) = "decreaseCredScore(r)" ></a>
           </div>
         </div>
 

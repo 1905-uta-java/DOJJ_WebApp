@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-account-dropdown',
@@ -9,7 +10,7 @@ export class AccountDropdownComponent implements OnInit {
 
   username = '';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.username = JSON.parse(localStorage.getItem('currentUser')).username;
@@ -20,11 +21,11 @@ export class AccountDropdownComponent implements OnInit {
     localStorage.setItem('currentUser', '');
     localStorage.setItem('isLoggedIn', 'false');
     localStorage.setItem('isAdmin', 'false');
+    this.router.navigate([`home`]);
   }
 
-  profileLink()
-  {
-    
+  profileLink() {
+
   }
 
 }
