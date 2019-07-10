@@ -21,6 +21,14 @@ export class UserService {
     return this.http.post(this.userUrl, user, {responseType: 'text'});
   }
 
+  validPassword(user) {
+    return this.http.put(this.userUrl + '/valid', user, {responseType: 'text'});
+  }
+
+  changePassword(user) {
+    return this.http.put(this.userUrl + '/change', user, {responseType: 'text'});
+  }
+
   // Update a review for a movie
   putUser(user) {
     return this.http.put(this.userUrl, user, {responseType: 'text'});

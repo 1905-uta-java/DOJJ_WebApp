@@ -12,6 +12,7 @@ export class LoginDropdownComponent implements OnInit {
   pass: string;
   user;
   failedLogin = false;
+  isLoading = false;
 
   constructor(private loginService: LoginService) { }
 
@@ -19,6 +20,7 @@ export class LoginDropdownComponent implements OnInit {
   }
 
   login() {
+    this.isLoading = true;
     this.failedLogin = false;
     this.loginService.postLogin(this.usname, this.pass).subscribe((currentUser) => {
       this.user = currentUser;
@@ -43,6 +45,7 @@ export class LoginDropdownComponent implements OnInit {
       }
 
     });
+    this.isLoading = false;
   }
 
 }

@@ -40,6 +40,7 @@ export class SignupFormComponent implements OnInit {
      + this.usname + '. password is ' + this.pass);
 
     this.createNewUserService.postNewUser(this.mail, this.usname, this.pass).subscribe((currentUser) => {
+      console.log(currentUser);
     });
 
   }

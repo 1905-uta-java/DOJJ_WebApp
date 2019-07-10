@@ -14,7 +14,7 @@ export class CreateNewUserService {
 
     // Create a new review for a movie
     postNewUser(mail, usname, pass) {
-      const user = {email: mail, username: usname, password: pass};
+      const user = {email: mail, username: usname, password: pass, reputation: 0, privilege: '01'};
       return this.http.post(this.userUrl, user, {responseType: 'text'});
     }
 }

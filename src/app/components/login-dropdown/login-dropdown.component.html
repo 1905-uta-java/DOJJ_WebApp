@@ -3,7 +3,10 @@
     Login
 </button>
 <div class="dropdown-menu login-menu" aria-labelledby="loginDropdown">
-  <form class="px-4 py-3">
+  <div class="spinner-border text-success" role="status" *ngIf="isLoading">
+      <span class="sr-only">Loading...</span>
+  </div>
+  <form class="px-4 py-3" *ngIf="!isLoading">
     <span style="color: red" *ngIf="failedLogin">Failed to login</span>
     <div class="form-group">
       <label for="usernamedropdown">Username</label>
