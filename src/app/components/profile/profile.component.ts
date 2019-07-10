@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   isBanned = false;
   ls = localStorage;
   isCurrentUser;
+  user;
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private banService : BanService) { }
 
@@ -37,9 +38,9 @@ export class ProfileComponent implements OnInit {
           this.isAdmin = true;
         }
         this.userService.getUser(this.username).subscribe((newUser) => {
-          const user = newUser;
-          // this.credScore = user.reputation;
-          // this.username = user.username;
+          this.user = newUser;
+          this.credScore = this.user.reputation;
+          this.username = this.user.username;
         });
       }
     });

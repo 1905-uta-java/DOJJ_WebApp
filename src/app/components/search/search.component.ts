@@ -19,6 +19,7 @@ export class SearchComponent implements OnInit {
   apiKey = '19fd2eec2c34304e81d242a6fe7020f5';
   returnedSearch: any = [];
   searched: any;
+  noResults = false;
 
   constructor(private route: ActivatedRoute, private searchService: SearchService, private router: Router) {}
   ngOnInit() {
@@ -34,10 +35,18 @@ export class SearchComponent implements OnInit {
     console.log(this.requestUrl + ' IS THE FINAL REQUEST URL!!!');
 
     // use service to get movie results
-    this.searchService.getMovie(this.requestUrl).subscribe((information) => 
+    this.searchService.getMovie(this.requestUrl).subscribe((information) =>
     {
       this.returnedSearch = information;
-      console.log(this.returnedSearch[0] + "ARE RETURNED RESULTS");
+      //Check if results is 0
+      if (this.returnedSearch.results.length === 0)
+      {
+        // do something in the html
+        this.noResults = true;
+
+        // on HTML, do nG If with a message
+      }
+      console.log(this.returnedSearch);
 
 
     });

@@ -19,8 +19,6 @@ export class DisplayReviewsComponent implements OnInit {
 
   ngOnInit() {
     this.genReviews();
-
-
   }
 
   increaseCredScore(review) {
