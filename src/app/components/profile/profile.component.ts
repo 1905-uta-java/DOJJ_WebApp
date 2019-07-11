@@ -28,8 +28,8 @@ export class ProfileComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.username = params.user;
     });
-
-    if (this.username === JSON.parse(localStorage.getItem('currentUser')).username) {
+    const currentU = JSON.parse(localStorage.getItem('currentUser'));
+    if (this.username === currentU.username) {
       this.isUserOfPage = true;
       this.getCurUser();
     } else {

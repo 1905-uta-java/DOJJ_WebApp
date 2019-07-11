@@ -18,7 +18,7 @@ export class AccountDropdownComponent implements OnInit {
 
 
   logout() {
-    localStorage.setItem('currentUser', '');
+    localStorage.setItem('currentUser', JSON.stringify({email: '', username: '', password: '', reputation: 0, privilege: ''}));
     localStorage.setItem('isLoggedIn', 'false');
     localStorage.setItem('isAdmin', 'false');
     this.router.navigate([`home`]);
