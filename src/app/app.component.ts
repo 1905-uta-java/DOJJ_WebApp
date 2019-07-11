@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
 
   cleanInput = '';
-  searchBox;
+  searchBox = '';
 
   constructor(private router: Router) { }
 

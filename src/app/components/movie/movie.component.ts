@@ -43,6 +43,8 @@ export class MovieComponent implements OnInit {
 
   setCreatedReview(review) {
     this.createdReview = review;
+    this.router.navigateByUrl('/refresh', {skipLocationChange: true}).then(()=>
+      this.router.navigate([`movie/${this.movieId}`]));
   }
 
 }

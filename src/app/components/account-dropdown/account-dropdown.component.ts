@@ -25,7 +25,8 @@ export class AccountDropdownComponent implements OnInit {
   }
 
   profileLink() {
-
+    this.router.navigateByUrl('/refresh', {skipLocationChange: true}).then(()=>
+      this.router.navigate([`profile/${this.username}`]));
   }
 
 }
