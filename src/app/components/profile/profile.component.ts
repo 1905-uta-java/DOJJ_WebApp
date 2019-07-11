@@ -30,11 +30,8 @@ export class ProfileComponent implements OnInit {
     });
 
     if (this.username === JSON.parse(localStorage.getItem('currentUser')).username) {
-      const user = JSON.parse(localStorage.getItem('currentUser'));
       this.isUserOfPage = true;
-      this.credScore = user.reputation;
-      this.username = user.username;
-      this.email = user.email;
+      this.getCurUser();
     } else {
       if (localStorage.getItem('isAdmin') === 'true') {
         this.isAdmin = true;
@@ -57,6 +54,14 @@ export class ProfileComponent implements OnInit {
     this.userService.getUser(this.username).subscribe((newUser) => {
       this.user = newUser;
       this.credScore = this.user.reputation;
+    });
+  }
+
+  getCurUser() {
+    this.userService.getUser(this.username).subscribe((newUser) => {
+      this.user = newUser;
+      this.credScore = this.user.reputation;
+      this.email = this.user.email;
     });
   }
 }
