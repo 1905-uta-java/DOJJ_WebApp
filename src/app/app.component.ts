@@ -17,9 +17,11 @@ export class AppComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    localStorage.setItem('currentUser', JSON.stringify({email: '', username: '', password: '', reputation: 0, privilege: ''}));
-    localStorage.setItem('isLoggedIn', 'false');
-    localStorage.setItem('isAdmin', 'false');
+    if (localStorage.getItem('isLoggedIn') !== 'true' && localStorage.getItem('isLoggedIn') !== 'false') {
+      localStorage.setItem('currentUser', JSON.stringify({email: '', username: '', password: '', reputation: 0, privilege: ''}));
+      localStorage.setItem('isLoggedIn', 'false');
+      localStorage.setItem('isAdmin', 'false');
+    }
   }
 
   getSearchResults(userSearch: string) {

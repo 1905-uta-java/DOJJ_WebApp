@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { ReviewsService } from 'src/app/services/reviews/reviews.service';
 import { ReputationService } from 'src/app/services/reputation.service';
 
@@ -12,6 +12,7 @@ export class DisplayReviewsComponent implements OnInit {
   noReviews = false;
   isNew = false;
   @Input() MovieId;
+  @Input() CreatedReview;
   allReviews: any = [];
 
 
@@ -25,22 +26,23 @@ export class DisplayReviewsComponent implements OnInit {
     let inter = JSON.parse(localStorage.getItem('interactions'));
     if (inter !== null) {
       let intRev = inter.interaction.find(r => r.id === review.id);
-      if ((intRev === undefined || intRev.action === 'minus') && localStorage.getItem('isLoggedIn') === 'true') {
+      if ((intRev === undefined || intRev.action === 'minus' || intRev.action === 'neutral')
+        && localStorage.getItem('isLoggedIn') === 'true') {
         if (intRev !== undefined && intRev.action === 'minus') {
+          inter.interaction.find(r => r.id === review.id).action = 'neutral';
+        } else if (intRev !== undefined && intRev.action === 'neutral') {
           inter.interaction.find(r => r.id === review.id).action = 'plus';
         } else {
           inter.interaction.push({id: review.id, action: 'plus'});
         }
+
         review.userScore = 1;
         const user = {email: '', username: review.username, password: '', reputation: 1, privilege: ''};
 
         this.repService.putRep(user, review).subscribe(response => {
-          const res = response;
-          console.log(res);
-          console.log(JSON.parse(localStorage.getItem('interactions')));
-          localStorage.setItem('interactions', JSON.stringify(inter));
-          console.log(JSON.parse(localStorage.getItem('interactions')));
-          this.genReviews();
+        const res = response;
+        localStorage.setItem('interactions', JSON.stringify(inter));
+        this.genReviews();
         });
       }
     }
@@ -50,8 +52,11 @@ export class DisplayReviewsComponent implements OnInit {
     let inter = JSON.parse(localStorage.getItem('interactions'));
     if (inter !== null) {
       let intRev = inter.interaction.find(r => r.id === review.id);
-      if ((intRev === undefined || intRev.action === 'plus') && localStorage.getItem('isLoggedIn') === 'true') {
+      if ((intRev === undefined || intRev.action === 'plus' || intRev.action === 'neutral')
+        && localStorage.getItem('isLoggedIn') === 'true') {
         if (intRev !== undefined && intRev.action === 'plus') {
+          inter.interaction.find(r => r.id === review.id).action = 'neutral';
+        } else if (intRev !== undefined && intRev.action === 'neutral') {
           inter.interaction.find(r => r.id === review.id).action = 'minus';
         } else {
           inter.interaction.push({id: review.id, action: 'minus'});
@@ -61,9 +66,7 @@ export class DisplayReviewsComponent implements OnInit {
 
         this.repService.putRep(user, review).subscribe(response => {
           const res = response;
-          console.log(JSON.parse(localStorage.getItem('interactions')));
           localStorage.setItem('interactions', JSON.stringify(inter));
-          console.log(JSON.parse(localStorage.getItem('interactions')));
           this.genReviews();
         });
       }

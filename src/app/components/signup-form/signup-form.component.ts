@@ -44,16 +44,13 @@ export class SignupFormComponent implements OnInit {
     this.createNewUserService.postNewUser(this.mail, this.usname, this.pass).subscribe((currentUser) => {
       console.log(currentUser);
       this.isCreated = true;
-      waits(5);
-      this.isCreated = false;
       this.router.navigate([`home`]);
-
     });
 
   }
 
   ngOnInit() {
-
+    this.isCreated = false;
     }
 
 }
