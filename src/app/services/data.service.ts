@@ -10,34 +10,35 @@ import { NotFoundError } from '../common/validators/not-found-error';
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
-  constructor(private url: string, private http: HttpClient, private headers?: HttpHeaders) { }
+  constructor(private http: HttpClient, private headers?: HttpHeaders) { }
 
   getAll() {
-      return this.http.get(this.url, {headers: this.headers}).pipe
+      return this.http.get(localStorage.getItem('mapurl'), {headers: this.headers}).pipe
       (map(response => response)).pipe
       (catchError(this.handleError));
   }
 
-  create(resource: { title: string; }){
-    return this.http.post(this.url, JSON.stringify(resource)).pipe
+  create(resource: { title: string; }) {
+    return this.http.post(localStorage.getItem('mapurl'), JSON.stringify(resource)).pipe
     (map(response => response)).pipe
     (catchError(this.handleError));
   }
 
-  update(resource){
-    return this.http.patch(this.url + '/' + resource.id, JSON.stringify({ isRead: true })).pipe
+  update(resource) {
+    return this.http.patch(localStorage.getItem('mapurl') + '/' + resource.id, JSON.stringify({ isRead: true })).pipe
       (map(response => response)).pipe
       (catchError(this.handleError));
   }
 
-  delete(id){
-    return this.http.delete(this.url + '/' + id).pipe
+  delete(id) {
+    return this.http.delete(localStorage.getItem('mapurl') + '/' + id).pipe
     (map(response => response)).pipe
     (catchError(this.handleError));
   }
 
-  private handleError(error: Response){
+  private handleError(error: Response) {
     if (error.status===400)
       return Observable.throw(new BadInput(error.json));
     if (error.status===404)

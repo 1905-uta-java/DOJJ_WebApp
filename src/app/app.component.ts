@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 
 @Component({
@@ -6,10 +6,8 @@ import { Router} from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'movie-review';
-  isLoggedIn = false;
-  isAdmin = false;
   ls = localStorage;
 
 
@@ -18,12 +16,15 @@ export class AppComponent {
 
   constructor(private router: Router) { }
 
+  ngOnInit() {
+    localStorage.setItem('currentUser', JSON.stringify({email: '', username: '', password: '', reputation: 0, privilege: ''}));
+    localStorage.setItem('isLoggedIn', 'false');
+    localStorage.setItem('isAdmin', 'false');
+  }
+
   getSearchResults(userSearch: string) {
     // clean user results to fit API calls
-    console.log('YOUR CALLBACK FUNCTION is being called!');
-    console.log(userSearch + 'is the value you entered!');
     this.cleanInput = userSearch.replace(' ', '%20');
-    console.log(this.cleanInput + ' IS THE USER INPUT REPLACED WITH SPACES!');
     this.router.navigate([`search/${this.cleanInput}`]);
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsernameValidators } from './username.validators';
 import { CreateNewUserService } from 'src/app/services/create-new-user.service';
+import { Router} from '@angular/router';
 
 
 @Component({
@@ -13,6 +14,7 @@ export class SignupFormComponent implements OnInit {
   mail: string;
   usname: string;
   pass: string;
+  isCreated = false;
 
     // get all used usernames
   // store in local storage
@@ -29,7 +31,7 @@ export class SignupFormComponent implements OnInit {
     })
   });
 
-  constructor(private createNewUserService: CreateNewUserService) { }
+  constructor(private createNewUserService: CreateNewUserService, private router: Router) { }
 
   submitSignup() {
     this.mail = this.form.get('account.email').value;
@@ -41,6 +43,11 @@ export class SignupFormComponent implements OnInit {
 
     this.createNewUserService.postNewUser(this.mail, this.usname, this.pass).subscribe((currentUser) => {
       console.log(currentUser);
+      this.isCreated = true;
+      waits(5);
+      this.isCreated = false;
+      this.router.navigate([`home`]);
+
     });
 
   }

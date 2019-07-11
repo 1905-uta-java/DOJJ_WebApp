@@ -5,6 +5,7 @@
     </div>
 
     <div class="col-sm-6 form-container">
+      <div *ngIf="isCreated" style="color: green">User Created!</div>
       <form [formGroup]="form" (ngSubmit)="submitSignup()">
         <div formGroupName="account">
             <div *ngIf="form.errors" class="alert alert-danger">
