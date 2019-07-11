@@ -27,6 +27,7 @@ import { AppErrorHandler } from '../common/validators/app-error-handler';
 import { SignupFormComponent } from '../components/signup-form/signup-form.component';
 import { ChangePasswordComponent } from '../components/change-password/change-password.component';
 import { NewReleasesComponent } from '../components/new-releases/new-releases.component';
+import { RefreshComponent } from '../components/refresh/refresh.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { NewReleasesComponent } from '../components/new-releases/new-releases.co
     TheatresComponent,
     SignupFormComponent,
     ChangePasswordComponent,
-    NewReleasesComponent
+    NewReleasesComponent,
+    RefreshComponent
   ],
   imports: [
     BrowserModule,

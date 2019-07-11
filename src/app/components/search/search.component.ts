@@ -23,6 +23,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private searchService: SearchService, private router: Router) {}
   ngOnInit() {
+    this.noResults = false;
     // use constructor to obtain user input from search and place user input in search variable
     this.route.params.subscribe(params => {
         this.searched = params.result;

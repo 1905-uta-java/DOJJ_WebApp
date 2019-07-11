@@ -6,6 +6,7 @@ import { MovieComponent } from './components/movie/movie.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { RefreshComponent } from './components/refresh/refresh.component';
 
 const routes: Routes = [
   {path: 'home',
@@ -22,7 +23,9 @@ const routes: Routes = [
   {path: 'signup',
   component: SignupFormComponent},
   {path: 'changepassword',
-  component: ChangePasswordComponent}
+  component: ChangePasswordComponent},
+  {path: 'refresh',
+  component: RefreshComponent}
 ];
 
 @NgModule({

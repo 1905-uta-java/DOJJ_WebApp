@@ -27,6 +27,8 @@ export class AppComponent implements OnInit {
   getSearchResults(userSearch: string) {
     // clean user results to fit API calls
     this.cleanInput = userSearch.replace(' ', '%20');
-    this.router.navigate([`search/${this.cleanInput}`]);
+    // this.router.navigate([`search/${this.cleanInput}`]);
+    this.router.navigateByUrl('/refresh', {skipLocationChange: true}).then(()=>
+      this.router.navigate([`search/${this.cleanInput}`]));
   }
 }

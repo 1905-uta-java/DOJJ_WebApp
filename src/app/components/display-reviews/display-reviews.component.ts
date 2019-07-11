@@ -62,7 +62,7 @@ export class DisplayReviewsComponent implements OnInit {
           inter.interaction.push({id: review.id, action: 'minus'});
         }
         review.userScore = -1;
-        const user = {email: '', username: review.username, password: '', reputation: 1, privilege: ''};
+        const user = {email: '', username: review.username, password: '', reputation: -1, privilege: ''};
 
         this.repService.putRep(user, review).subscribe(response => {
           const res = response;
