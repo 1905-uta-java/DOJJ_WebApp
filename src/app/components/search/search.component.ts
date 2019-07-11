@@ -43,9 +43,11 @@ export class SearchComponent implements OnInit {
       if (this.returnedSearch.results.length === 0)
       {
         // do something in the html
-        this.noResults = true;
-
-        // on HTML, do nG If with a message
+        this.noResults = true
+      }
+      else
+      {
+        this.noResults = false;
       }
       console.log(this.returnedSearch);
 
